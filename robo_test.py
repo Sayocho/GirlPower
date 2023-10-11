@@ -1,11 +1,11 @@
 import RPi.GPIO as gpio
 import time
 
-PWMF1 = 2
-PWMF2 = 3
+PWMF1 = 13
+PWMF2 = 19
 
-FrontLeft = 17
-FrontRight = 27
+FrontLeft = 2
+FrontRight = 3
 
 gpio.setwarnings(False)
 gpio.cleanup()
