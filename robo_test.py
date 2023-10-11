@@ -1,8 +1,8 @@
 import RPi.GPIO as gpio
 import time
 
-PWMF1 = 13
-PWMF2 = 19
+PWMF1 = 33
+PWMF2 = 35
 
 FrontLeft = 2
 FrontRight = 3
