@@ -1,50 +1,33 @@
-#PWM test
+import RPi.GPIO as gpio
+import time
 
+PWMF1 = 2
+PWMF2 = 3
 
+FrontLeft = 17
+FrontRight = 27
 
+gpio.setwarnings(False)
+gpio.cleanup()
 
+gpio.setmode(gpio.BCM)
 
+gpio.setup(PWMF1, gpio.OUT)
+gpio.setup(PWMF2, gpio.OUT)
+gpio.setup(FrontLeft, gpio.OUT)
+gpio.setup(FrontRight, gpio.OUT)
 
-import RPi.GPIO as GPIO
-from time import sleep
+gpio.output(PWMF1, True)
+gpio.output(FrontLeft, True)
+gpio.output(PWMF2, True)
+gpio.output(FrontRight, True)
 
-SpeedPin = 12
-SpeedPin1 = 13
-# PWM pins
+time.sleep(0.5)
 
-DirectionPin = 2
-DirectionPin1 = 3
+gpio.output(FrontLeft, False)
+gpio.output(FrontRight, False)
 
-GPIO.setwarnings(False)			#disable warnings
-GPIO.setmode(GPIO.BCM)	#set pin numbering system
+time.sleep(0.5)
 
-GPIO.cleanup()
-
-GPIO.setup(SpeedPin,GPIO.OUT)
-GPIO.setup(SpeedPin1,GPIO.OUT)
-
-GPIO.setup(DirectionPin,GPIO.OUT)
-GPIO.setup(DirectionPin1,GPIO.OUT)
-
-
-pi_pwm = GPIO.PWM(SpeedPin,1000)		#create PWM instance with frequency
-pi_pwm.start(0)
-
-pi_pwm1 = GPIO.PWM(SpeedPin1,1000)		#create PWM instance with frequency
-pi_pwm1.start(0)			
-
-GPIO.output(DirectionPin, True)
-GPIO.output(DirectionPin1, True)
-
-
-#start PWM of required Duty Cycle 
-while True:
-    for duty in range(0,101,1):
-        pi_pwm.ChangeDutyCycle(duty) #provide duty cycle in the range 0-100
-        pi_pwm1.ChangeDutyCycle(duty)
-        sleep(0.1)
-                
-    for duty in range(100,0,-1):
-        pi_pwm.ChangeDutyCycle(duty)
-        pi_pwm1.ChangeDutyCycle(duty)
-        sleep(0.1)
+gpio.output(PWMF1, False)
+gpio.output(PWMF2, False)
