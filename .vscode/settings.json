@@ -1,5 +1,6 @@
 {
     "codeBlocks.ignoredLanguageIds": [
+        "git-commit",
         "python",
         "plaintext"
     ]
