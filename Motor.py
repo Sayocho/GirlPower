@@ -14,5 +14,5 @@ motor = Motor(forward=0, backward=17)
 
 print('Starting robot')
 
-motor.forward()
+motor.backward()
 sleep(3)
