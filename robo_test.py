@@ -67,7 +67,7 @@ while True:
         PWM_RWheel1.ChangeDutyCycle(duty) #provide duty cycle in the range 0-100
         PWM_RWheel2.ChangeDutyCycle(duty)
         
-PWM_LWheel1.ChangeDutyCycle(duty)
+        PWM_LWheel1.ChangeDutyCycle(duty)
         PWM_LWheel2.ChangeDutyCycle(duty)
         sleep(0.1)
                 
