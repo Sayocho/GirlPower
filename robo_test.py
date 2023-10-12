@@ -44,10 +44,10 @@ def LWheel1_Dir(i):
 
 # Sæt retning til "fremad" for begge hjul
 RWheel1_Dir(True)
-LWheel1_Dir(True)
+LWheel1_Dir(False)
 
 while True:
-    # Gradvist øg duty cycle for at øge hastigheden (fremad)
+    # Gradvist øge duty cycle for at øge hastigheden (fremad)
     for duty in range(0, 101, 1):
         PWM_RWheel1.ChangeDutyCycle(duty)
         PWM_RWheel2.ChangeDutyCycle(duty)
