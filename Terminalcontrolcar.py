@@ -67,6 +67,6 @@ def main(window):
             while next_key == key:
                 next_key = window.getch()
             # KEY RELEASED
-            #stop() #Orginal not comment
+            stop() #Orginal not comment
 
 curses.wrapper(main)
