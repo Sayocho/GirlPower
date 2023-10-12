@@ -59,7 +59,7 @@ def main(window):
             next_key = None
         if key != -1:
             # KEY PRESSED
-            curses.halfdelay(3)
+            curses.halfdelay(1) #Orginal 3
             action = actions.get(key)
             if action is not None:
                 action()
@@ -67,6 +67,6 @@ def main(window):
             while next_key == key:
                 next_key = window.getch()
             # KEY RELEASED
-            stop()
+            #stop() #Orginal not comment
 
 curses.wrapper(main)
