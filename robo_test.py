@@ -1,37 +1,29 @@
-'''python code'''
 import RPi.GPIO as GPIO
 from time import sleep
 
-
-
+# Set op GPIO-tilstand (BCM-tilstand bruges i dette eksempel)
 GPIO.setmode(GPIO.BCM)
-'''Dette specificerer RPi pins til at følge "Broadcom SOC channel"... Aka., det definere pins i en bestemt rækkefølge'''
 
+# Declarér pins til højre hjul
+RWheel1 = 13        # Forbindelse til PWM signal for højre hjul
+RWheelDir2 = 4      # Forbindelse til retningskontrol (skal være "sand" for at køre fremad)
+RWheel2 = 19        # Forbindelse til PWM signal for højre hjul
+RWheelDir1 = 17     # Forbindelse til retningskontrol (skal være "sand" for at køre fremad)
+
+# Declarér pins til venstre hjul
+LWheel1 = 18        # Forbindelse til PWM signal for venstre hjul
+LWheelDir2 = 23     # Forbindelse til retningskontrol (skal være "sand" for at køre fremad)
+LWheel2 = 12        # Forbindelse til PWM signal for venstre hjul
+LWheelDir1 = 22     # Forbindelse til retningskontrol (skal være "sand" for at køre fremad)
+
+# Slå advarsler fra
 GPIO.setwarnings(False)
 
-RWheel1 = 13
-RWheelDir2 = 4
-RWheel2 = 19
-RWheelDir1 = 17
+# Opsætning af GPIO pins som output
+for pin in [RWheel1, RWheelDir2, RWheel2, RWheelDir1, LWheel1, LWheelDir2, LWheel2, LWheelDir1]:
+    GPIO.setup(pin, GPIO.OUT)
 
-LWheel1 = 18
-LWheelDir2 = 23
-LWheel2 = 12
-LWheelDir1 = 22
-'''Dette er midlertidige pins. Vi skal have sat dem til det de rigtigt skal være...'''
-
-GPIO.setup(RWheel1, GPIO.OUT)
-GPIO.setup(RWheelDir2, GPIO.OUT)
-GPIO.setup(RWheel2, GPIO.OUT)
-GPIO.setup(RWheelDir1, GPIO.OUT)
-
-GPIO.setup(LWheel1, GPIO.OUT)
-GPIO.setup(LWheelDir2, GPIO.OUT)
-GPIO.setup(LWheel2, GPIO.OUT)
-GPIO.setup(LWheelDir1, GPIO.OUT)
-
-
-
+# Konfigurer PWM (Pulse Width Modulation) til hjulene
 PWM_RWheel1 = GPIO.PWM(RWheel1, 1000)
 PWM_RWheel1.start(0)
 PWM_RWheel2 = GPIO.PWM(RWheel2, 1000)
@@ -41,41 +33,32 @@ PWM_LWheel1 = GPIO.PWM(LWheel1, 1000)
 PWM_LWheel1.start(0)
 PWM_LWheel2 = GPIO.PWM(LWheel2, 1000)
 PWM_LWheel2.start(0)
-'''Her sætter vi alle "Wheels" op til at køre med pwm'''
 
+# Funktion til at ændre retning for højre hjul
 def RWheel1_Dir(i):
     GPIO.output(RWheelDir2, i)
-def RWheel2_Dir(i):
-    GPIO.output(RWheelDir1, i)
+
+# Funktion til at ændre retning for venstre hjul
 def LWheel1_Dir(i):
     GPIO.output(LWheelDir2, i)
-def LWheel2_Dir(i):
-    GPIO.output(LWheelDir1, i)
-'''Dette siger hvilken retning som hjulene skal dreje...'''
 
-
-
+# Sæt retning til "fremad" for begge hjul
 RWheel1_Dir(True)
-RWheel2_Dir(True)
-
-LWheel1_Dir(True)
-LWheel2_Dir(True)
-
+LWheel1_Dir(False)
 
 while True:
-    for duty in range(0,101,1):
-        PWM_RWheel1.ChangeDutyCycle(duty) #provide duty cycle in the range 0-100
-        PWM_RWheel2.ChangeDutyCycle(duty)
-        
-        PWM_LWheel1.ChangeDutyCycle(duty)
-        PWM_LWheel2.ChangeDutyCycle(duty)
-        sleep(0.1)
-                
-    for duty in range(100,0,-1):
+    # Gradvist øge duty cycle for at øge hastigheden (fremad)
+    for duty in range(0, 101, 1):
         PWM_RWheel1.ChangeDutyCycle(duty)
         PWM_RWheel2.ChangeDutyCycle(duty)
         PWM_LWheel1.ChangeDutyCycle(duty)
         PWM_LWheel2.ChangeDutyCycle(duty)
         sleep(0.1)
 
-      
+    # Gradvist formindsk duty cycle for at bremse og stoppe
+    for duty in range(100, -1, -1):
+        PWM_RWheel1.ChangeDutyCycle(duty)
+        PWM_RWheel2.ChangeDutyCycle(duty)
+        PWM_LWheel1.ChangeDutyCycle(duty)
+        PWM_LWheel2.ChangeDutyCycle(duty)
+        sleep(0.1)
