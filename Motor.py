@@ -10,9 +10,9 @@ from time import sleep
 #13: Front Right Reverse
 #18: Front Right Forward
 
-motor = Motor(forward=5, backward=0)
+motor = Motor(forward=10, backward=10)
 
 print('Starting robot')
 
 motor.forward()
-sleep(3)
+#sleep(3)
