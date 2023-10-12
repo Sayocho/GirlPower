@@ -7,7 +7,7 @@ from time import sleep
 GPIO.setmode(GPIO.BCM)
 '''Dette specificerer RPi pins til at følge "Broadcom SOC channel"... Aka., det definere pins i en bestemt rækkefølge'''
 
-
+GPIO.setwarnings(False)
 
 RWheel1 = 13
 RWheelDir2 = 4
@@ -77,3 +77,5 @@ while True:
         PWM_LWheel1.ChangeDutyCycle(duty)
         PWM_LWheel2.ChangeDutyCycle(duty)
         sleep(0.1)
+
+      
