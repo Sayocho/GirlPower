@@ -5,16 +5,16 @@ from time import sleep
 GPIO.setmode(GPIO.BCM)
 
 # Declarér pins til højre hjul
-RWheel1 = 13        # Forbindelse til PWM signal for højre hjul
-RWheelDir2 = 4      # Forbindelse til retningskontrol (skal være "sand" for at køre fremad)
-RWheel2 = 19        # Forbindelse til PWM signal for højre hjul
-RWheelDir1 = 17     # Forbindelse til retningskontrol (skal være "sand" for at køre fremad)
+RWheel1 = 13        # Forbindelse til PWM signal for højre hjul (RAWRASPIN=33)
+RWheelDir2 = 4      # Forbindelse til retningskontrol (skal være "sand" for at køre fremad)(RAWRASPIN=7)
+RWheel2 = 19        # Forbindelse til PWM signal for højre hjul(RAWRASPIN=35)
+RWheelDir1 = 17     # Forbindelse til retningskontrol (skal være "sand" for at køre fremad)(RAWRASPIN=11)
 
 # Declarér pins til venstre hjul
-LWheel1 = 18        # Forbindelse til PWM signal for venstre hjul
-LWheelDir2 = 23     # Forbindelse til retningskontrol (skal være "sand" for at køre fremad)
-LWheel2 = 12        # Forbindelse til PWM signal for venstre hjul
-LWheelDir1 = 22     # Forbindelse til retningskontrol (skal være "sand" for at køre fremad)
+LWheel1 = 18        # Forbindelse til PWM signal for venstre hjul(RAWRASPIN=12)
+LWheelDir2 = 23     # Forbindelse til retningskontrol (skal være "sand" for at køre fremad)(RAWRASPIN=16)
+LWheel2 = 12        # Forbindelse til PWM signal for venstre hjul(RAWRASPIN=32)
+LWheelDir1 = 22     # Forbindelse til retningskontrol (skal være "sand" for at køre fremad)(RAWRASPIN=15)
 
 # Slå advarsler fra
 GPIO.setwarnings(False)
