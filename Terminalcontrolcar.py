@@ -1,10 +1,10 @@
 from gpiozero import Motor
 import curses
 
-flmotor = Motor(forward=19, backward=4) #RPIN: 36(GPIO16) & 11(GPIO17) Forward = PWM Backward = DIR:
-frmotor = Motor(forward=13, backward=17) #RPIN: 12(GPIO18) & 33(GPIO13) Forward = PWM Backward = DIR:
-blmotor = Motor(forward=18, backward=22)  #RPIN: 21(GPIO9)  & 23(GPIO11) Forward = PWM Backward = DIR:
-brmotor = Motor(forward=12, backward=23) #RPIN: 19(GPIO10) & 32(GPIO12) Forward = PWM Backward = DIR:
+flmotor = Motor(forward=19, backward=4)   #RPIN: 35(GPIO19) & 7 (GPIO4)  Forward = PWM Backward = DIR:
+frmotor = Motor(forward=13, backward=17)  #RPIN: 33(GPIO13) & 11(GPIO17) Forward = PWM Backward = DIR:
+blmotor = Motor(forward=18, backward=22)  #RPIN: 12(GPIO18) & 15(GPIO22) Forward = PWM Backward = DIR:
+brmotor = Motor(forward=12, backward=23)  #RPIN: 32(GPIO12) & 16(GPIO23) Forward = PWM Backward = DIR:
 
 def left():
 #    print('Left ...')
