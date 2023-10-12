@@ -43,7 +43,7 @@ def LWheel1_Dir(i):
     GPIO.output(LWheelDir2, i)
 
 # Sæt retning til "fremad" for begge hjul
-RWheel1_Dir(True)
+RWheel1_Dir(False)
 LWheel1_Dir(False)
 
 while True:
