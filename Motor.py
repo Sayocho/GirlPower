@@ -1,5 +1,6 @@
 from gpiozero import Motor
 from time import sleep
+import RPi.GPIO as GPIO
 
 #9: Back left forward
 #10: Back Right forward
@@ -26,10 +27,10 @@ motor1.forward()
 motor2.forward()
 motor3.forward()
 motor4.forward()
-sleep(5)
+sleep(3)
 gpio.output(17,True)
 motor1.backward()
 motor2.backward()
 motor3.backward()
 motor4.backward()
-sleep(5)
+sleep(3)
