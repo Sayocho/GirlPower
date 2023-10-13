@@ -66,7 +66,7 @@ def main(window):
             next_key = None
         if key != -1:       #-1 full speed one dirction (1 = full speed the other direction. 0= stop)
             # KEY PRESSED
-            curses.halfdelay(1) #Orginal 3
+            curses.halfdelay(3) #Orginal 3
             action = actions.get(key)
             if action is not None:
                 action()
