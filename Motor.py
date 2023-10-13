@@ -19,6 +19,11 @@ motor2 = Motor(forward=19, backward=4)
 motor3 = Motor(forward=12, backward=23) 
 motor4 = Motor(forward=18, backward=22)
 
+motor1.enable()
+motor2.enable()
+motor3.enable()
+motor4.enable()
+
 
 
 print('Starting robot')
