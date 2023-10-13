@@ -8,8 +8,8 @@ brmotor = Motor(forward=18, backward=22)  #RPIN: 12(GPIO18) & 16(GPIO23) Forward
 """
 
 flmotor = Motor(forward=17, backward=13)
-frmotor = Motor(forward=19, backward=4)
-blmotor = Motor(forward=12, backward=23)
+frmotor = Motor(forward=4, backward=19)
+blmotor = Motor(forward=23, backward=12)
 brmotor = Motor(forward=22, backward=18)
 
 
