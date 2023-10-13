@@ -55,7 +55,7 @@ actions = {
     curses.KEY_RIGHT: right,
 }
 
-def main(window):
+def main(window): #window = refered to the windows in terminal "curses"
     next_key = None
     while True:
         curses.halfdelay(1)
