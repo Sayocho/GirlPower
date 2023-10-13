@@ -45,7 +45,7 @@ def right():
     GPIO.output(blPWM, GPIO.HIGH)
     GPIO.output(blGPIO, GPIO.HIGH)
     GPIO.output(brPWM, GPIO.HIGH)
-    GPIO.output(brGPIO, GPIO.HIGH)
+    GPIO.output(brGPIO, GPIO.LOW)
 """
 #RightOG
 def right():
@@ -65,9 +65,9 @@ def left():
     GPIO.output(frPWM, GPIO.HIGH)
     GPIO.output(frGPIO, GPIO.HIGH)
     GPIO.output(blPWM, GPIO.HIGH)
-    GPIO.output(blGPIO, GPIO.HIGH)
+    GPIO.output(blGPIO, GPIO.LOW)
     GPIO.output(brPWM, GPIO.HIGH)
-    GPIO.output(brGPIO, GPIO.LOW)
+    GPIO.output(brGPIO, GPIO.HIGH)
 
 """
 #LeftOG
