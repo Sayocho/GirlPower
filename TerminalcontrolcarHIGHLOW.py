@@ -6,17 +6,17 @@ import curses
 #PWM&GPIO pins to the four engines.
 
 #FRONTLEFT
-flPWM = 13    #RPIN33
-flGPIO = 4    #RPIN7
+flPWM = 33    #RPIN33 (GPIO13)
+flGPIO = 7    #RPIN7  (GPIO4)
 #FRONTRIGHT
-frPWM = 19    #RPIN35
-frGPIO = 7    #RPIN11
+frPWM = 35    #RPIN35 (GPIO19)
+frGPIO = 11    #RPIN11 (GPIO17)
 #BAGLEFT
-blPWM = 12    #RPIN32
-blGPIO = 22   #RPIN15
+blPWM = 32    #RPIN32 (GPIO12)
+blGPIO = 15   #RPIN15 (GPIO22)
 #BAGRIGHT
-brPWM = 18    #RPIN12
-brGPIO = 23   #RPIN16
+brPWM = 12    #RPIN12 (GPIO18)
+brGPIO = 16   #RPIN16 (GPIO23)
 
 
 GPIO.setmode(GPIO.BCM)
