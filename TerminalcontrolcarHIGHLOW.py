@@ -6,19 +6,19 @@ import curses
 #PWM&GPIO pins to the four engines.
 
 #FRONTLEFT
-flPWM = 33    #RPIN33 (GPIO13)
-flGPIO = 7    #RPIN7  (GPIO4)
+flPWM = 13    #RPIN33 (GPIO13)
+flGPIO = 4    #RPIN7  (GPIO4)
 #FRONTRIGHT
-frPWM = 35    #RPIN35 (GPIO19)
-frGPIO = 11    #RPIN11 (GPIO17)
+frPWM = 19    #RPIN35 (GPIO19)
+frGPIO = 17    #RPIN11 (GPIO17)
 #BAGLEFT
-blPWM = 32    #RPIN32 (GPIO12)
-blGPIO = 15   #RPIN15 (GPIO22)
+blPWM = 12    #RPIN32 (GPIO12)
+blGPIO = 22   #RPIN15 (GPIO22)
 #BAGRIGHT
-brPWM = 12    #RPIN12 (GPIO18)
-brGPIO = 16   #RPIN16 (GPIO23)
+brPWM = 18    #RPIN12 (GPIO18)
+brGPIO = 23   #RPIN16 (GPIO23)
 
-
+GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BCM)
 
 #Setting PWM&GPIO the pins as output.
@@ -85,8 +85,8 @@ def left():
 
 #Forward 
 def forward():
-    GPIO.output(blPWM, GPIO.HIGH)
-    GPIO.output(blGPIO, GPIO.HIGH)
+    GPIO.output(flPWM, GPIO.HIGH)
+    GPIO.output(flGPIO, GPIO.HIGH)
     GPIO.output(frPWM, GPIO.HIGH)
     GPIO.output(frGPIO, GPIO.HIGH)
     GPIO.output(blPWM, GPIO.HIGH)
