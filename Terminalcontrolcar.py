@@ -6,40 +6,44 @@ frmotor = Motor(forward=19, backward=4)   #RPIN: 35(GPIO19) & 11(GPIO17) Forward
 blmotor = Motor(forward=12, backward=23)  #RPIN: 32(GPIO12) & 15(GPIO22) Forward = PWM Backward = DIR:
 brmotor = Motor(forward=18, backward=22)  #RPIN: 12(GPIO18) & 16(GPIO23) Forward = PWM Backward = DIR:
 
+forward = 1
+backward = -1
+stop = 0
+
 def left():
 #    Left 
-    flmotor.backward(-1)
-    frmotor.forward(1)
-    blmotor.backward(-1)
-    brmotor.forward(1)
+    flmotor.backward()
+    frmotor.forward()
+    blmotor.backward()
+    brmotor.forward()
 
 def right():
 #    Right 
-    flmotor.forward(1)
-    frmotor.backward(-1)
-    blmotor.forward(1)
-    brmotor.backward(-1)
+    flmotor.forward()
+    frmotor.backward()
+    blmotor.forward()
+    brmotor.backward()
 
 def forward():
 #    Forwarding 
-    flmotor.forward(1)
-    frmotor.forward(1)
-    blmotor.forward(1)
-    brmotor.forward(1)
+    flmotor.forward()
+    frmotor.forward()
+    blmotor.forward()
+    brmotor.forward()
 
 def reverse():
 #    Reversing 
-    flmotor.backward(-1)
-    frmotor.backward(-1)
-    blmotor.backward(-1)
-    brmotor.backward(-1)
+    flmotor.backward()
+    frmotor.backward()
+    blmotor.backward()
+    brmotor.backward()
 
 def stop():
 #    Stopping 
-    flmotor.stop(0)
-    frmotor.stop(0)
-    blmotor.stop(0)
-    brmotor.stop(0)
+    flmotor.stop()
+    frmotor.stop()
+    blmotor.stop()
+    brmotor.stop()
 
 actions = {
     curses.KEY_UP:    forward,
