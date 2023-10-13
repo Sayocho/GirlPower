@@ -6,7 +6,7 @@ pygame.init()
 pygame.mixer.init()
 
 # Load a sound file
-sound = pygame.mixer.Sound('C:\Users\blood\Downloads\untitled_zd2ts4l-audiotrimmer_7vAtKUf.mp3')
+sound = pygame.mixer.Sound('tokyodrift.mp3')
 
 # Play the sound
 sound.play()
