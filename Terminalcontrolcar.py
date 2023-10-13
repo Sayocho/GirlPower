@@ -8,7 +8,7 @@ brmotor = Motor(forward=18, backward=22)  #RPIN: 12(GPIO18) & 16(GPIO23) Forward
 """
 
 flmotor = Motor(forward=17, backward=13)
-frmotor = Motor(forward=4, backward=19)
+frmotor = Motor(forward=4,  backward=19)
 blmotor = Motor(forward=23, backward=12)
 brmotor = Motor(forward=22, backward=18)
 
@@ -60,13 +60,13 @@ def main(window):
     while True:
         curses.halfdelay(1)
         if next_key is None:
-            key = window.getch()
+            key = window.getch() #window = refered to the windows in terminal "curses" #getch = single key"press"
         else:
             key = next_key
             next_key = None
         if key != -1:       #-1 full speed one dirction (1 = full speed the other direction. 0= stop)
             # KEY PRESSED
-            curses.halfdelay(3) #Orginal 3
+            curses.halfdelay(1) #Orginal 3
             action = actions.get(key)
             if action is not None:
                 action()
@@ -76,4 +76,4 @@ def main(window):
             # KEY RELEASED
             stop() #Orginal not comment
 
-curses.wrapper(main)
+curses.wrapper(main) # the ending/ the close down of the "empty" terminal window for controlling
