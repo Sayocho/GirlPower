@@ -1,3 +1,4 @@
+#The car can NOT reverse!!!
 from gpiozero import Motor #Controling DC motors using GPIO
 import curses #Controling the car by using terminal
 
