@@ -1,5 +1,6 @@
 from gpiozero import Motor
 from time import sleep
+import RPi.GPIO as GPIO
 
 #9: Back left forward
 #10: Back Right forward
@@ -10,9 +11,31 @@ from time import sleep
 #13: Front Right Reverse
 #18: Front Right Forward
 
-motor = Motor(forward=10, backward=10)
+#motor = Motor(forward=13, backward=17)
+
+
+motor1 = Motor(forward=13, backward=17)  
+motor2 = Motor(forward=19, backward=4)   
+motor3 = Motor(forward=12, backward=23) 
+motor4 = Motor(forward=18, backward=22)
+
+motor1.enable()
+motor2.enable()
+motor3.enable()
+motor4.enable()
+
+
 
 print('Starting robot')
 
-motor.forward()
-#sleep(3)
+motor1.forward()
+motor2.forward()
+motor3.forward()
+motor4.forward()
+sleep(3)
+gpio.output(17,True)
+motor1.backward()
+motor2.backward()
+motor3.backward()
+motor4.backward()
+sleep(3)
